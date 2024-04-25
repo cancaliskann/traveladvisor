@@ -6,8 +6,17 @@ import Rating from '@material-ui/lab/Rating';
 
 import useStyles from './style';
 
-const PlaceDetails = ({place}) => {
+const PlaceDetails = ({place, selected, refProp}) => {
   const classes = useStyles();
+
+// here shouldve been the scroll function
+  // I HAVE LITERALLY NO IDEA WHY THIS IS NOT WORKING MAYBE SOMETHING ABOUT MY BROWSER? maybe abot refProp lol maybe in list
+  if (selected) refProp?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  if (selected) console.log({selected, refProp});
+
+
+
+
   return (
     <Card elevation={6}>
       <CardMedia 
