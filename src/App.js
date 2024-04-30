@@ -34,17 +34,19 @@ const App = () => {
 
 
   useEffect(() =>{
-    setIsLoading(true);
-    getPlacesData(type, bounds.sw, bounds.ne)
-    .then((data) => {
-      console.log(data);
+    if(bounds.sw && bounds.ne){ 
 
-      setPlaces(data);
-      setFilteredPlaces([])
-      setIsLoading(false);
-    })
+      setIsLoading(true);
+      getPlacesData(type, bounds.sw, bounds.ne)
+      .then((data) => {
 
-  }, [type,coordinates, bounds]);
+        setPlaces(data?.filter((place) => place.name && place.num_reviews > 0));
+        setFilteredPlaces([])
+        setIsLoading(false);
+      })
+  }
+
+  }, [type, bounds]);
   return (
    <>
    <CssBaseline />

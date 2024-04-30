@@ -21,10 +21,10 @@ const Header = ({setCoordinates}) => {
 
  
   return (
-    <AppBar position='static'>
-      <Toolbar className={classes.toolbar}>
+    <AppBar position='static' style={{ backgroundColor: '#5e7f84' }}>
+      <Toolbar className={classes.toolbar} >
         <Typography variant='h5' className={classes.title}>
-          Travel Advisor 
+          Travel Buddy 
         </Typography>
         <Box display="flex">
           <Typography variant='h6' className={classes.title}>
